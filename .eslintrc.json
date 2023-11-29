@@ -13,6 +13,8 @@
 },
   "rules": {
     "no-underscore-dangle": ["error", { "allow": ["_id"] }],
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "func-names": ["error", "never"],
+    "treatUndefinedAsUnspecified": false
   }
 }

@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     minlength: [2, 'Минимальная длина поля "name" - 2'],
     maxlength: [30, 'Максимальная длина поля "name" - 30'],
-    default: 'Имя Пользователя',
+    required: [true, 'Поле "name" должно быть заполнено'],
   },
   email: {
     type: String,
@@ -26,7 +26,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-// eslint-disable-next-line func-names
 userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email })
     .select('+password')
