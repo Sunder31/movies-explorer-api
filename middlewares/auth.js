@@ -6,7 +6,8 @@ const auth = (req, res, next) => {
   const token = req.cookies.jwt;
 
   if (!token) {
-    return next(new UnauthorizedError('Требуется авторизация'));
+    next(new UnauthorizedError('Требуется авторизация'));
+    return;
   }
 
   let payload;
@@ -14,7 +15,8 @@ const auth = (req, res, next) => {
   try {
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev_secret');
   } catch {
-    return next(new UnauthorizedError('Требуется авторизация'));
+    next(new UnauthorizedError('Требуется авторизация'));
+    return;
   }
 
   req.user = payload;
