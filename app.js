@@ -17,7 +17,7 @@ const app = express();
 
 app.use(cors({
    credentials: true,
-   origin: ['https://sunder.movie-explorer.nomoredomainsmonster.ru', 'http://localhost:3000'],
+   origin: ['https://sunder.movie-explorer.nomoredomainsmonster.ru', 'http://localhost:3000', 'http://localhost:5173'],
 }));
 
 app.use(helmet());
