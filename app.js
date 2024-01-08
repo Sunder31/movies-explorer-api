@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-// const cors = require('cors');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
@@ -15,10 +15,10 @@ mongoose.connect(MONGO_DB);
 
 const app = express();
 
-// app.use(cors({
-//   credentials: true,
-//   origin: '',
-// }));
+app.use(cors({
+   credentials: true,
+   origin: ['https://sunder.movie-explorer.nomoredomainsmonster.ru', 'http://localhost:3000'],
+}));
 
 app.use(helmet());
 
