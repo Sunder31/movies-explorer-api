@@ -42,6 +42,8 @@ const signin = (req, res, next) => {
 
       res
         .cookie('jwt', token, {
+          secure: true,
+          sameSite: 'none',
           maxAge: 604800000,
           httpOnly: true,
         })
