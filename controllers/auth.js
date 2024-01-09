@@ -45,6 +45,7 @@ const signin = (req, res, next) => {
           sameSite: 'none',
           maxAge: 604800000,
           httpOnly: true,
+          secure: true,
         })
         .send({
           name: user.name,
