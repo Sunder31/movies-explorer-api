@@ -6,6 +6,6 @@ router.post('/signin', signinValidation, signin);
 
 router.post('/signup', signupValidation, createUser);
 
-router.get('/signout', signout);
+router.post('/signout', signout);
 
 module.exports = router;
