@@ -53,7 +53,7 @@ const deleteMovie = (req, res, next) => {
   Movie.findById(movieId)
     .orFail(new NotFoundError('Фильм не найден'))
     .then((movie) => {
-      if (movie.owner.valueOf() !== req.user._id) {
+      if (!movie.owner.equals(req.user._id)) {
         throw new ForbiddenError('Недостаточно прав');
       } else {
         return movie.deleteOne();
