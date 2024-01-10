@@ -3,9 +3,9 @@ const NotFoundError = require('../errors/NotFoundError');
 const ForbiddenError = require('../errors/ForbiddenError');
 
 const getMovies = (req, res, next) => {
-  const ownderId = req.user._id;
+  const ownerId = req.user._id;
 
-  Movie.find({ owner: ownderId })
+  Movie.find({ owner: ownerId })
     .then((movies) => {
       res.status(200).send(movies);
     })
@@ -22,7 +22,7 @@ const createMovie = (req, res, next) => {
     image,
     trailerLink,
     thumbnail,
-    movieId,
+    id,
     nameRU,
     nameEN,
   } = req.body;
@@ -37,7 +37,7 @@ const createMovie = (req, res, next) => {
     trailerLink,
     thumbnail,
     owner: req.user._id,
-    movieId,
+    id,
     nameRU,
     nameEN,
   })
